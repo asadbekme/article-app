@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 const Input = ({ type ='text', label, state, setState }) => {
 
   return (
@@ -12,7 +10,7 @@ const Input = ({ type ='text', label, state, setState }) => {
         placeholder={label} 
         onChange={(e) => setState(e.target.value)}
       />
-      <label for="floatingInput">{label}</label>
+      <label htmlFor="floatingInput">{label}</label>
     </div>
   )
 }

@@ -14,7 +14,7 @@ const Register = () => {
           <img src={icon} alt="icon image" style={{ width: '75px', height: '74px' }} />
           <h1 className="h3 my-3 fw-normal">Register</h1>
 
-          <Input type={"text"} label={"Username"} state={username} setState={setUsername} />
+          <Input label={"Username"} state={username} setState={setUsername} />
           
           <Input type={"email"} label={"Email"} state={email} setState={setEmail} />
 
