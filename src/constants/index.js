@@ -1,1 +1,2 @@
 export const logo = 'https://logovectordl.com/wp-content/uploads/2021/03/article-logo-vector.png'
+export const icon = 'https://png.pngtree.com/png-clipart/20190705/original/pngtree-article-marketing-icon-design-png-image_4268316.jpg'
