@@ -7,14 +7,12 @@ import { Input } from '../ui'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
   const dispatch = useDispatch()
   const {isLoading} = useSelector((state) => state.auth)
   // console.log(isLoading)
 
   const loginHandler = (e) => {
     e.preventDefault()
-
     dispatch(loginUserStart())
   }
 
