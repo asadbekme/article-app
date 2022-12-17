@@ -4,6 +4,7 @@ import { icon } from '../constants'
 import AuthService from '../service/auth'
 import { signUserFailure, signUserStart, signUserSuccess } from '../slice/auth'
 import { Input } from '../ui'
+import ValidationError from './ValidationError'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -23,7 +24,7 @@ const Register = () => {
       // console.log(response)
       dispatch(signUserSuccess(response.user))
     } catch (error) {
-      console.log(error.response.data)
+      // console.log(error.response.data)
       dispatch(signUserFailure(error.response.data.errors))
     }
   }
@@ -34,6 +35,7 @@ const Register = () => {
         <form>
           <img src={icon} alt="icon image" style={{ width: '75px', height: '74px' }} />
           <h1 className="h3 my-3 fw-normal">Register</h1>
+          <ValidationError />
 
           <Input label={"Username"} state={username} setState={setUsername} />
           
