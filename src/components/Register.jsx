@@ -36,7 +36,7 @@ const Register = () => {
     if (isLoggedIn) {
       navigate('/')
     }
-  }, [])
+  }, [isLoggedIn])
 
   return (
     <div className="text-center mt-5">
