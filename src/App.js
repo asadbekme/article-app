@@ -25,7 +25,7 @@ const App = () => {
     dispatch(getArticlesStart())
     try {
       const response = await ArticleService.getArticles()
-      console.log(response)
+      // console.log(response)
       dispatch(getArticlesSuccess(response.articles))
     } catch (error) {
       console.log(error)
