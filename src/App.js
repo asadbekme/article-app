@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import { Main, Login, Register, Navbar } from './components'
 import { getItem } from './helpers/persistenceStorage'
+import ArticleService from './service/article'
 import AuthService from './service/auth'
+import { getArticlesStart, getArticlesSuccess } from './slice/article'
 import { signUserSuccess } from './slice/auth'
 
 const App = () => {
@@ -19,11 +21,24 @@ const App = () => {
     }
   }
 
+  const getArticles = async () => {
+    dispatch(getArticlesStart())
+    try {
+      const response = await ArticleService.getArticles()
+      console.log(response)
+      dispatch(getArticlesSuccess(response.articles))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     const token = getItem("token")
     if (token) {
       getUser()
     }
+
+    getArticles()
   }, [])
 
   return (
