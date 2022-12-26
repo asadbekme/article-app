@@ -20,13 +20,16 @@ const Navbar = () => {
     <div className="container">
       <div className="d-flex flex-column flex-md-row align-items-center mb-2 border-bottom p-2">
         <Link to={'/'}>
-          <img src={logo} alt="logo image" style={{ width: '102px', height: '58px' }} />
+          <img src={logo} alt="logo image" style={{ width: '140px', height: '60px' }} />
         </Link>
 
         <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
           {isLoggedIn ? (
-            <div className="d-flex align-items-center gap-4">
+            <div className="d-flex align-items-center gap-3">
               <p className="m-0">{user.username}</p>
+              <Link className="text-dark text-decoration-none" to={'/create-article'}>
+                <button className="btn btn-outline-primary">Create</button>
+              </Link>
               <button className="btn btn-outline-danger" onClick={logoutHandler}>Logout</button>
             </div>
           ) : (
