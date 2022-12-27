@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="container">
       <div className="d-flex flex-column flex-md-row align-items-center mb-2 border-bottom p-2">
         <Link to={'/'}>
-          <img src={logo} alt="logo image" style={{ width: '140px', height: '60px' }} />
+          <img src={logo} alt="logo image" style={{ width: '135px', height: '56px' }} />
         </Link>
 
         <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
