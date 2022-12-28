@@ -8,7 +8,6 @@ import { Loader } from "../ui"
 const Main = () => {
   const { isLoading, articles } = useSelector((state) => state.article)
   const { isLoggedIn, user } = useSelector((state) => state.auth)
-  // console.log(articles)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
@@ -64,9 +63,13 @@ const Main = () => {
                       >
                         View
                       </button>
-                      { isLoggedIn && (user.username === article.author.username) && (
+                      {isLoggedIn && (user.username === article.author.username) && (
                         <>
-                          <button type="button" className="btn btn-sm btn-outline-success">
+                          <button 
+                            type="button" 
+                            className="btn btn-sm btn-outline-success"
+                            onClick={() => navigate(`/edit-article/${article.slug}`)}
+                          >
                             Edit
                           </button>
                           <button 
@@ -77,7 +80,7 @@ const Main = () => {
                             Delete
                           </button>
                         </>
-                      ) }
+                      )}
                     </div>
                     <small className="text-muted fw-bold text-capitalize">{article.author.username}</small>
                   </div>
