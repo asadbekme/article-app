@@ -7,6 +7,7 @@ import { Loader } from "../ui"
 
 const Main = () => {
   const { isLoading, articles } = useSelector((state) => state.article)
+  const { isLoggedIn, user } = useSelector((state) => state.auth)
   // console.log(articles)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -17,6 +18,15 @@ const Main = () => {
       const response = await ArticleService.getArticles()
       // console.log(response)
       dispatch(getArticlesSuccess(response.articles))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const deleteArticle = async (slug) => {
+    try {
+      const response = await ArticleService.deleteArticle(slug)
+      getArticles()
     } catch (error) {
       console.log(error)
     }
@@ -54,8 +64,20 @@ const Main = () => {
                       >
                         View
                       </button>
-                      <button type="button" className="btn btn-sm btn-outline-success">Edit</button>
-                      <button type="button" className="btn btn-sm btn-outline-danger">Delete</button>
+                      { isLoggedIn && (user.username === article.author.username) && (
+                        <>
+                          <button type="button" className="btn btn-sm btn-outline-success">
+                            Edit
+                          </button>
+                          <button 
+                            type="button" 
+                            className="btn btn-sm btn-outline-danger"
+                            onClick={() => deleteArticle(article.slug)}
+                          >
+                            Delete
+                          </button>
+                        </>
+                      ) }
                     </div>
                     <small className="text-muted fw-bold text-capitalize">{article.author.username}</small>
                   </div>

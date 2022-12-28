@@ -4,9 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Main, Login, Register, Navbar, ArticleDetail, CreateArticle } from './components'
 import { getItem } from './helpers/persistenceStorage'
 import AuthService from './service/auth'
-import ArticleService from './service/article'
 import { signUserSuccess } from './slice/auth'
-import { getArticlesStart, getArticlesSuccess } from './slice/article'
 
 const App = () => {
   const dispatch = useDispatch()

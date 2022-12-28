@@ -45,5 +45,14 @@ export const articleSlice = createSlice({
   } 
 })
 
-export const { getArticlesStart, getArticlesSuccess, getArticleDetailStart, getArticleDetailSuccess, getArticleDetailFailure, postArticleStart, postArticleSuccess, postArticleFailure } = articleSlice.actions
+export const { 
+  getArticlesStart, 
+  getArticlesSuccess, 
+  getArticleDetailStart, 
+  getArticleDetailSuccess, 
+  getArticleDetailFailure, 
+  postArticleStart, 
+  postArticleSuccess, 
+  postArticleFailure 
+} = articleSlice.actions
 export default articleSlice.reducer
