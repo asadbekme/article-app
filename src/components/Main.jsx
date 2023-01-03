@@ -31,7 +31,7 @@ const Main = () => {
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {
             articles.map((article) => (
-              <ArticleCard article={article} getArticles={getArticles} />
+              <ArticleCard key={article.id} article={article} getArticles={getArticles} />
             ))
           }
         </div>
