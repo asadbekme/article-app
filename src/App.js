@@ -24,7 +24,6 @@ const App = () => {
     if (token) {
       getUser()
     }
-
   }, [])
 
   return (
