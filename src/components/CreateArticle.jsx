@@ -19,7 +19,6 @@ const CreateArticle = () => {
     dispatch(postArticleStart())
     try {
       const response = await ArticleService.postArticle(article)
-      // console.log(response)
       dispatch(postArticleSuccess())
       navigate('/')
     } catch (error) {

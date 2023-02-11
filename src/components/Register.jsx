@@ -11,9 +11,8 @@ const Register = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const dispatch = useDispatch()
   const {isLoading, isLoggedIn} = useSelector((state) => state.auth)
-  // console.log(auth)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const registerHandler = async (e) => {
@@ -23,11 +22,9 @@ const Register = () => {
     const user = {username: username, email: email, password: password}
     try {
       const response = await AuthService.userRegister(user)
-      // console.log(response)
       dispatch(signUserSuccess(response.user))
       navigate('/')
     } catch (error) {
-      // console.log(error.response.data)
       dispatch(signUserFailure(error.response.data.errors))
     }
   }

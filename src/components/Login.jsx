@@ -10,9 +10,8 @@ import ValidationError from './ValidationError'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const dispatch = useDispatch()
   const {isLoading, isLoggedIn} = useSelector((state) => state.auth)
-  // console.log(isLoading)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const loginHandler = async (e) => {
@@ -22,7 +21,6 @@ const Login = () => {
     const user = { email: email, password: password }
     try {
       const response = await AuthService.userLogin(user)
-      // console.log(response)
       dispatch(signUserSuccess(response.user))
       navigate('/')
     } catch (error) {

@@ -1,5 +1,4 @@
 const Input = ({ type ='text', label, state, setState }) => {
-
   return (
     <div className="form-floating mt-2">
       <input 

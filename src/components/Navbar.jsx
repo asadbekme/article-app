@@ -6,7 +6,6 @@ import { logoutUser } from "../slice/auth"
 
 const Navbar = () => {
   const { isLoggedIn, user } = useSelector((state) => state.auth)
-  // console.log(isLoggedIn)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -26,7 +25,7 @@ const Navbar = () => {
         <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
           {isLoggedIn ? (
             <div className="d-flex align-items-center gap-3">
-              <p className="m-0">{user.username}</p>
+              <p className="m-0 fw-normal fs-5">{user.username}</p>
               <Link className="text-dark text-decoration-none" to={'/create-article'}>
                 <button className="btn btn-outline-primary">Create</button>
               </Link>

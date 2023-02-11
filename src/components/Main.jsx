@@ -13,7 +13,6 @@ const Main = () => {
     dispatch(getArticlesStart())
     try {
       const response = await ArticleService.getArticles()
-      console.log(response)
       dispatch(getArticlesSuccess(response.articles))
     } catch (error) {
       console.log(error)
@@ -30,8 +29,8 @@ const Main = () => {
       <div className="album py-5">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {
-            articles.map((article) => (
-              <ArticleCard key={article.id} article={article} getArticles={getArticles} />
+            articles.map((article, index) => (
+              <ArticleCard key={index} article={article} getArticles={getArticles} />
             ))
           }
         </div>

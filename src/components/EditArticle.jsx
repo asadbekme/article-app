@@ -17,7 +17,6 @@ const EditArticle = () => {
     dispatch(getArticleDetailStart())
     try {
       const response = await ArticleService.getArticleDetail(slug) 
-      // console.log(response)
       setTitle(response.article.title)
       setDescription(response.article.description)
       setBody(response.article.body)
@@ -39,7 +38,6 @@ const EditArticle = () => {
     dispatch(postArticleStart())
     try {
       const response = await ArticleService.editArticle(slug, article)
-      // console.log(response)
       dispatch(postArticleSuccess())
       navigate('/')
     } catch (error) {

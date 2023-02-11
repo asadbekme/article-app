@@ -16,7 +16,6 @@ const ArticleDetail = () => {
     dispatch(getArticleDetailStart())
     try {
       const response = await ArticleService.getArticleDetail(slug) 
-      // console.log(response)
       dispatch(getArticleDetailSuccess(response.article))
     } catch (error) {
       dispatch(getArticleDetailFailure())
