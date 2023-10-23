@@ -1,42 +1,44 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import ArticleService from "../service/article"
-import { getArticlesStart, getArticlesSuccess } from "../slice/article"
-import { Loader } from "../ui"
-import ArticleCard from "./ArticleCard"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ArticleService from "../service/article";
+import { getArticlesStart, getArticlesSuccess } from "../slice/article";
+import { Loader } from "../ui";
+import ArticleCard from "./ArticleCard";
 
 const Main = () => {
-  const { isLoading, articles } = useSelector((state) => state.article)
-  const dispatch = useDispatch()
-  
+  const { isLoading, articles } = useSelector((state) => state.article);
+  const dispatch = useDispatch();
+
   const getArticles = async () => {
-    dispatch(getArticlesStart())
+    dispatch(getArticlesStart());
     try {
-      const response = await ArticleService.getArticles()
-      dispatch(getArticlesSuccess(response.articles))
+      const response = await ArticleService.getArticles();
+      dispatch(getArticlesSuccess(response.articles));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getArticles()
-  }, [])
-  
+    getArticles();
+  }, []);
+
   return (
     <>
-      { isLoading && <Loader /> }
+      {isLoading && <Loader />}
       <div className="album py-5">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {
-            articles.map((article, index) => (
-              <ArticleCard key={index} article={article} getArticles={getArticles} />
-            ))
-          }
+          {articles.map((article, index) => (
+            <ArticleCard
+              key={index}
+              article={article}
+              getArticles={getArticles}
+            />
+          ))}
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

@@ -5,7 +5,7 @@ const Loader = () => {
         <span className="visually-hidden">Loading...</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

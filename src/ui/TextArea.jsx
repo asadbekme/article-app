@@ -1,18 +1,17 @@
-const TextArea = ({ label, state, setState, height = '100px' }) => {
+const TextArea = ({ label, state, setState, height = "100px" }) => {
   return (
     <div className="form-floating my-1">
-      <textarea 
-        className="form-control" 
-        placeholder={label} 
+      <textarea
+        className="form-control"
+        placeholder={label}
         value={state}
         onChange={(e) => setState(e.target.value)}
-        id="floatingTextarea2" 
+        id="floatingTextarea2"
         style={{ height: height }}
-      >
-      </textarea>
+      ></textarea>
       <label htmlFor="floatingTextarea2">{label}</label>
     </div>
-  )
-}
+  );
+};
 
-export default TextArea
+export default TextArea;

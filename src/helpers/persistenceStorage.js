@@ -1,23 +1,23 @@
 export const setItem = (key, data) => {
   try {
-    localStorage.setItem(key, data)
+    localStorage.setItem(key, data);
   } catch (error) {
-    console.log("Error saving data")
+    console.log("Error saving data");
   }
-}
+};
 
 export const getItem = (key) => {
   try {
-    return localStorage.getItem(key)
+    return localStorage.getItem(key);
   } catch (error) {
-    console.log("Error getting data")
+    console.log("Error getting data");
   }
-}
+};
 
 export const removeItem = (key) => {
   try {
-    localStorage.removeItem(key)
+    localStorage.removeItem(key);
   } catch (error) {
-    console.log('Error removing data')
+    console.log("Error removing data");
   }
-}
+};
